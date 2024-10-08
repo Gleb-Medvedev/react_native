@@ -1,54 +1,17 @@
-import { useState } from "react";
+import { ProductCard } from "./components/ProductCard/ProductCard"
+import "./videos"
+import { VIDEOS } from "./videos"
 
-
-function Square() {
-
-    const [value, setValue] = useState(null);
-
-    function clickHandler() {
-        value === "X" ? setValue(null) : setValue("X")
-    }
-    
-    return <button className="square" onClick={clickHandler}>{value}</button>
-}
-
-
-
-// function Square({ value }) {
-//     function handleClick() {
-//       console.log('clicked!');
-//     }
-  
-//     return (
-//       <button
-//         className="square"
-//         onClick={handleClick}
-//       >
-//         {value}
-//       </button>
-//     );
-//   }
-
-
-export default function Board() {
+export function App() {
     return (
-        <>
-            <div className="board-row">
-                <Square />
-                <Square />
-                <Square />
-            </div>
-            <div className="board-row">
-                <Square />
-                <Square />
-                <Square />
-            </div>
-            <div className="board-row">
-                <Square />
-                <Square />
-                <Square />
-            </div>
-        </>
+        <div className="gallery-wrapper">
+            {
+                VIDEOS.map(video => <ProductCard 
+                    title={video.title} 
+                    img={video.img} 
+                    id={video.id} 
+                    key={video.id}/>)
+            }
+        </div>
     )
-};
-  
+}
