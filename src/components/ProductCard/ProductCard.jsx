@@ -1,13 +1,16 @@
 import { useState } from "react";
 import "./ProductCard.css"
+import { Idk } from "../Idk/Idk";
 
 export function ProductCard(props) {
 
-    const {title="Тут должно быть название...",
+    const {
+        title="Тут должно быть название...",
         img="https://cdn-icons-png.flaticon.com/512/3481/3481105.png",
-        id} = props
+        id
+    } = props
 
-        let [likesCount, setLikesCount] = useState(0);
+        const [likesCount, setLikesCount] = useState(0);
 
         function incrementLikes() {
             setLikesCount(likesCount + 1);
@@ -15,6 +18,7 @@ export function ProductCard(props) {
 
     return (
         <div className="product-card" data-id={id}>
+            <Idk text={'фвыфвфвф!'} />
             <div className="product-card__img-wrapper">
                 <img src={img} className="product-card__img" alt="изображение" />
             </div>
